@@ -37,8 +37,8 @@ const Login = ({navigation, route})=>{
                     bool : false 
                 }
             }
-            return obj;
         }
+        return obj;
     }
 
     function userLogin(){
