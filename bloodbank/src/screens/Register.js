@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text, TextInput, StyleSheet, Button} from 'react-native';
+import firebase from 'firebase';
 
 const Register = ({ navigation, route })=>{
     const [name, setName] = useState('');
@@ -27,6 +28,11 @@ const Register = ({ navigation, route })=>{
             console.log("User already registered")
         }
         else{
+            firebase.database().ref('users').push({
+                name,
+                group,
+                password
+            })
             navigation.navigate('Login',{data})
         }
     }
